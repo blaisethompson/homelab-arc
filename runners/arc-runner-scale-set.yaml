@@ -6,6 +6,9 @@ metadata:
 spec:
   githubConfigUrl: https://github.com/blaisethompson/homelab-gitops
   githubConfigSecret: arc-github-secret
+  runnerScaleSetName: arc-runners
+  runnerScaleSetLabels:
+    - homelab
   minRunners: 0
   maxRunners: 5
   runnerGroup: Default
@@ -14,4 +17,4 @@ spec:
       containers:
         - name: runner
           image: ghcr.io/actions/actions-runner:latest
-          command: ["/home/runner/run.sh"]
+          command: [ "/home/runner/run.sh" ]
