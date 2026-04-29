@@ -1,5 +1,5 @@
 apiVersion: actions.github.com/v1alpha1
-kind: RunnerScaleSet
+kind: AutoscalingRunnerSet
 metadata:
   name: arc-runners
   namespace: arc-runners

@@ -5,10 +5,10 @@ ArgoCD-managed Actions Runner Controller (ARC) configuration for the homelab.
 ## Contents
 
 - `arc-controller-app.yaml`: installs the ARC controller via Helm.
-- `arc-runners-app.yaml`: installs RunnerScaleSet and secrets after CRDs exist.
+- `arc-runners-app.yaml`: installs AutoscalingRunnerSet and secrets after CRDs exist.
 - `arc-namespaces.yaml`: creates `arc-systems` and `arc-runners` namespaces.
 - `runners/arc-github-secret.yaml`: SealedSecret with GitHub token for ARC.
-- `runners/arc-runner-scale-set.yaml`: RunnerScaleSet definition.
+- `runners/arc-runner-scale-set.yaml`: AutoscalingRunnerSet definition.
 
 ## Notes
 
