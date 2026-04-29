@@ -3,6 +3,9 @@ kind: AutoscalingRunnerSet
 metadata:
   name: arc-runners
   namespace: arc-runners
+  labels:
+    actions.github.com/scale-set-name: arc-runners
+    actions.github.com/scale-set-version: "0.14.1"
 spec:
   githubConfigUrl: https://github.com/blaisethompson/homelab-gitops
   githubConfigSecret: arc-github-secret
