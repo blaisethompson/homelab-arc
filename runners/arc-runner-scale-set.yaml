@@ -12,6 +12,8 @@ spec:
   runnerScaleSetName: arc-runners
   runnerScaleSetLabels:
     - homelab
+    - actions.github.com/scale-set-name=arc-runners
+    - actions.github.com/scale-set-version=0.14.1
   minRunners: 0
   maxRunners: 5
   runnerGroup: Default
