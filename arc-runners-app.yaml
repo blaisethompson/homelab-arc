@@ -7,10 +7,23 @@ metadata:
     argocd.argoproj.io/sync-wave: "1"
 spec:
   project: default
-  source:
-    repoURL: https://github.com/blaisethompson/homelab-arc
-    targetRevision: main
-    path: runners
+  sources:
+    - repoURL: ghcr.io/actions/actions-runner-controller-charts
+      chart: gha-runner-scale-set
+      targetRevision: "0.14.1"
+      helm:
+        releaseName: arc-runners
+        values: |
+          githubConfigUrl: https://github.com/blaisethompson/homelab-gitops
+          githubConfigSecret: arc-github-secret
+          controllerServiceAccountNamespace: arc-systems
+          controllerServiceAccountName: arc-controller-gha-rs-controller
+          runnerScaleSetName: arc-runners
+          minRunners: 0
+          maxRunners: 5
+    - repoURL: https://github.com/blaisethompson/homelab-arc
+      targetRevision: main
+      path: runners
   destination:
     server: https://kubernetes.default.svc
     namespace: arc-runners
