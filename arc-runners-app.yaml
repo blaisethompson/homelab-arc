@@ -1,23 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: arc-controller
+  name: arc-runners
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "0"
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   project: default
   source:
-    repoURL: ghcr.io/actions/actions-runner-controller-charts
-    chart: gha-runner-scale-set-controller
-    targetRevision: "0.14.1"
-    helm:
-      values: |
-        flags:
-          watchSingleNamespace: arc-runners
+    repoURL: https://github.com/blaisethompson/homelab-arc
+    targetRevision: main
+    path: runners
   destination:
     server: https://kubernetes.default.svc
-    namespace: arc-systems
+    namespace: arc-runners
   syncPolicy:
     automated:
       selfHeal: true
