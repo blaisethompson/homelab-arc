@@ -16,8 +16,9 @@ spec:
         values: |
           githubConfigUrl: https://github.com/blaisethompson/homelab-gitops
           githubConfigSecret: arc-github-secret
-          controllerServiceAccountNamespace: arc-systems
-          controllerServiceAccountName: arc-controller-gha-rs-controller
+          controllerServiceAccount:
+            namespace: arc-systems
+            name: arc-controller-gha-rs-controller
           runnerScaleSetName: arc-runners
           minRunners: 0
           maxRunners: 5
